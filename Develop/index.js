@@ -23,7 +23,8 @@ function structureResponse (response) {
 ## Tests: ${Tests}
 ## Name: ${Username}
 ## Email: ${Email}
-## GitHub: ${Github}`
+## GitHub: ${Github}
+![](completedgif.gif)`
 }; 
 
 const asyncWriteFile = util.promisify(fs.writeFile);
