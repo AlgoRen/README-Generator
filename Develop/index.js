@@ -2,21 +2,28 @@
 // One badge, project title, description, Table of Contents, 
 // Installation, Usage, License, Contributing, Tests, Questions
 const inquirer = require("inquirer");
-const Contents = require('./structure'); // Descructured.
+const Contents = require('./structure'); 
 const fs = require("fs");
 const util = require("util");
 
 // A function that is to handle the results of the prompting of Contents.
 function structureResponse (response) {
-    let newContents = response
-    console.log(newContents)
-    console.log(JSON.stringify(newContents))
-    console.log(newContents.Badge);
-    return `# Generated ReadMe File for ${newContents.Username} @https://github.com/${newContents.Github}
-*Written file ${newContents.Title}*
-## Your badge: ${newContents.Badge}
-## Your title: ${newContents.Title}`
-
+    let {Title, Username, Github, Badge, Description, ToC, Installation, 
+    Usage, License, Contribute, Tests, Email} = response; // Descructured.
+    return `# Generated ReadMe File for ${Username} @https://github.com/${Github}
+*Written file ${Title}*
+## Badge: ${Badge}
+## Title: ${Title}
+## Description: ${Description}
+## ToC: ${ToC}
+## Installation: ${Installation}
+## Usage: ${Usage}
+## License: ${License}
+## Contribute: ${Contribute}
+## Tests: ${Tests}
+## Name: ${Username}
+## Email: ${Email}
+## GitHub: ${Github}`
 }; 
 
 const asyncWriteFile = util.promisify(fs.writeFile);
